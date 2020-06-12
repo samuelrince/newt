@@ -12,5 +12,5 @@ app = FastAPI()
 
 
 @app.post("/post/")
-async def create_item(article: Article):
+async def post_article(article: Article):
     return article
