@@ -38,7 +38,7 @@ class HTMLProcessing:
             title = self.__soup.title.text
 
         if title is not None:
-            title = shorter_text(preprocess_text(title), 20)
+            title = preprocess_text(title)
 
         return title
 
@@ -49,7 +49,7 @@ class HTMLProcessing:
 
         for desc in tmp:
             if desc.get('content') is not None:
-                return shorter_text(preprocess_text(desc['content']), 60)
+                return preprocess_text(desc['content'])
 
         return None
 
