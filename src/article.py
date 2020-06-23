@@ -2,6 +2,7 @@ import os
 import random
 import requests
 
+from typing import Union
 from requests import RequestException
 
 from .utils import decode_url
@@ -24,6 +25,22 @@ class Article:
         self.__title = title
         self.__description = description
         self.__content = content
+
+    @property
+    def url(self) -> Union[str, None]:
+        return self.__url
+
+    @property
+    def title(self) -> Union[str, None]:
+        return self.__title
+
+    @property
+    def description(self) -> Union[str, None]:
+        return self.__description
+
+    @property
+    def content(self):
+        return self.__content
 
 
 class RequestArticle:
