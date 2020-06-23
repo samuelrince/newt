@@ -55,8 +55,12 @@ class HTMLProcessing:
 
     def get_content(self) -> Union[str, None]:
         """Extracts paragraphs from the content of the article."""
+        content = list()
         paragraphs = self.__soup.findAll('p')
         if paragraphs is not None:
-            return ' '.join(paragraphs)
+            for p in paragraphs:
+                content.append(preprocess_text(p.text))
+            content = '\n'.join(content)
+            return content
 
         return None
